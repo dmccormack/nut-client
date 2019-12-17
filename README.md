@@ -1,3 +1,5 @@
+![](https://github.com/dmccormack/nut-client/workflows/Docker%20Hub%20Deployment/badge.svg)
+
 # Network UPS Tools client
 
 Docker image for a Network UPS Tools client to issue a shutdown command on the host machine. This container connects to a remote UPS running a NUTs server.
