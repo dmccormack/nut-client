@@ -1,0 +1,16 @@
+#!/bin/sh -e
+
+cat >/etc/nut/nut.conf <<EOF
+MODE=netclient
+EOF
+
+cat >/etc/nut/upsmon.conf <<EOF
+MONITOR $UPS_DEVICE 1 $UPS_USER $UPS_PASSWORD slave 
+SHUTDOWNCMD "/bin/sh -e /etc/nut/shutdown-cmd"
+EOF
+
+chgrp -R nut /etc/nut 
+chmod -R o-rwx /etc/nut
+
+exec /usr/sbin/upsmon -D
+

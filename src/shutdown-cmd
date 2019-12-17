@@ -1,0 +1,12 @@
+#!/bin/sh -e
+
+MONITOR_FILE=/tmp/nut-client/monitor
+
+umask 0000
+[ -d $(dirname $MONITOR_FILE) ] || mkdir -vp $(dirname $MONITOR_FILE)
+
+umask 0111
+echo -n "Writing a '1' into the monitor file '$MONITOR_FILE'"
+echo "1" > $MONITOR_FILE 
+echo "DONE"
+
