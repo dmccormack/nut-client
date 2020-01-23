@@ -17,3 +17,5 @@ ENTRYPOINT ["docker-entrypoint"]
 
 WORKDIR /var/run/nut
 
+HEALTHCHECK --start-period=30s --interval=90s --timeout=10s CMD upsc ${UPS_DEVICE} 2>&1 | grep -ci -e error -e stale && exit 1 || exit 0
+
